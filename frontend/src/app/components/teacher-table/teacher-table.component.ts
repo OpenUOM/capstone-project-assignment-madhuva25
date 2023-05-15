@@ -73,7 +73,7 @@ export class TeacherTableComponent implements OnInit {
       this.teacherData = foundItems;
     }
   }
-  
+
   deleteTeacher(itemid) {
     const test = {
       id: itemid

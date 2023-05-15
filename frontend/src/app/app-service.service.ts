@@ -9,17 +9,21 @@ export class AppServiceService {
 
   readonly ROOT_URL;
 
-  constructor(private http: HttpClient) {
-    this.ROOT_URL = 'http://localhost:8080'
-}
+  constructor(private http: HttpClient) { 
+    if(environment.production == false){
+      this.ROOT_URL = 'tes'
+    }else{
+      this.ROOT_URL = 'api'
+    }
+  }
 
   initializeDB(){
     return this.http.get(`/${this.ROOT_URL}/dbinitialize`)
   }
 
-  getTeacherData() {
-    return this.http.get('/api/listTeachers')
-}
+  getTeacherData(){
+    return this.http.get(`/${this.ROOT_URL}/listTeachers`)
+  }
 
   getStudentData(){
     return this.http.get(`/${this.ROOT_URL}/listStudents`)
