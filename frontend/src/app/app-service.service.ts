@@ -9,13 +9,9 @@ export class AppServiceService {
 
   readonly ROOT_URL;
 
-  constructor(private http: HttpClient) { 
-    if(environment.production == false){
-      this.ROOT_URL = 'tes'
-    }else{
-      this.ROOT_URL = 'api'
-    }
-  }
+  constructor(private http: HttpClient) {
+    this.ROOT_URL = 'http://localhost:8080'
+}
 
   initializeDB(){
     return this.http.get(`/${this.ROOT_URL}/dbinitialize`)
